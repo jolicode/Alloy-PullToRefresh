@@ -7,7 +7,19 @@ var api = {
 
     initialize : function() {
         if (parameters) {
-            $.headerPullView.height = parameters.size ? parameters.size : 60;
+            $.headerPullView.height = parameters.view.size ? parameters.view.size : 60;
+            $.headerPullView.backgroundColor = parameters.view.backgroundColor ? parameters.view.backgroundColor :'FFF';
+
+            $.border.height = parameters.border.height ? parameters.border.height : 2;
+            $.border.backgroundColor = parameters.border.backgroundColor ? parameters.border.backgroundColor : '#FF7A00';
+
+            $.arrow.backgroundImage = parameters.arrow.backgroundImage ? parameters.arrow.backgroundImage : WPATH('/images/arrow.png');
+            $.arrow.bottom = parameters.arrow.bottom ? parameters.arrow.bottom : 7;
+            $.arrow.height = parameters.arrow.height ? parameters.arrow.height : 45;
+            $.arrow.left = parameters.arrow.left ? parameters.arrow.left : 35;
+            $.arrow.width = parameters.arrow.width ? parameters.arrow.width : 11;
+
+
         }
 
     },

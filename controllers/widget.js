@@ -54,7 +54,7 @@ var api = {
                 api.headerPullViewArgs = parameters.headerPullView;
                 Ti.API.info("api.headerPullViewArgs: ");
                 Ti.API.info(api.headerPullViewArgs );
-                api.headerPullViewSize = parameters.headerPullView.size ? parameters.headerPullView.size : 60;
+                api.headerPullViewSize = parameters.headerPullView.view.size ? parameters.headerPullView.view.size : 60;
             }
 
             // create the controller headerPullView
@@ -116,7 +116,6 @@ var api = {
             api.pulling = true;
             api.headerPullControl.pulling();
         } else if (api.pulling && api.offset > 1 && api.offset < offsetMax) {
-            Ti.API.info("in api.pulling && api.offset > 1 && api.offset < offsetMax" + offsetMax)
             api.pulling = false;
             api.headerPullControl.pullingStop();
         }

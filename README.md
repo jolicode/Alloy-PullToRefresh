@@ -59,10 +59,27 @@ In your principal controller:
 
 	* `headerPullView`[Optional], that represents several properties specifics to Android's devices:
 	 	
-	 	| Option        | Signification                   | Type            | Default     |
-		| ------------- |:-------------------------------:|:---------------:|:-----------:|
-		| `size`        | size of the headerPullView      | Number          | 60          |
-		| 
+		* GroupOption : View 		
+		
+		
+			| Option             | Signification                   | Type            | Default      |
+			|------------------- |:-------------------------------:|:---------------:|:------------:|
+			||
+			| ***view***                                                                            | 
+			|  `size`            | size of the view                | Number          | 60           |
+			| `backgroundColor`  | background color of the view    | String          | "FFF"        |
+			||
+			| ***border***                                                                          | 
+			| `size`             | size of the view                | Number          | 60           |
+			| `backgroundColor`  | background color of the view    | String          | "FFF"        |
+			||
+			| ***arrow***                                                                           | 
+			| `bottom`           | margin bottom up to the border  | Number          | 7            |
+			| `height`           | height of the arrow             | Number          | 45           |
+			| `left`             | margin left of the arrow        | Number          | 35           |
+			| `width`            | width of the arrow              | Number          | 11           |
+			||
+			| 
 
 
 * In the `js`file of yout listView:
@@ -113,4 +130,24 @@ In your principal controller:
             tintColor : '#FF7A00',
             title: refreshTitle,
         },
-    });    
+
+        headerPullView : {
+            arrow : {
+                backgroundImage:,
+                bottom: 10,
+                height: 46,
+                left: 35,
+                width: 11
+            },
+            border : {
+                backgroundColor: 'blue',
+                height: 3
+            },
+            view : {
+                backgroundColor: 'grey',
+                size : 70
+            }
+        }      
+    });
+    
+    
