@@ -3,7 +3,7 @@
 ## Description
 The Titanium ALloy **Badass PullToRefresh** widget allows to refresh the page with a pull down when using a **ListView**. 
 Available for **iOS and Android**, without any dependencie.
-For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl), and for Android it's a custom pull to refresh. The header pull view is personalizable.
+For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl), and for Android it's a custom pull to refresh. The header pull view is personalizable and can be in multiples languages.
 
 ## Overview
 
@@ -145,63 +145,13 @@ You can find the same example in french in the widget file `i18n/fr/string.xml-d
 
 For more info in internationalization and i18n look the [documentation](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.Locale-method-getString).
 
-## Examples
+## Example
 
-	var refreshTitle = null;
+You can find an example in the folder `example`.
 
-    if (OS_IOS) {
-        var text = "Hello people, it's a text for the refresh control, yeahhhhh ça rocks du poney !";
-        refreshTitle = Titanium.UI.iOS.createAttributedString({
-            text: text,
-            attributes: [
-                {
-                    type: Titanium.UI.iOS.ATTRIBUTE_BACKGROUND_COLOR,
-                    value: "red",
-                    range: [text.indexOf('poney'), ('poney').length]
-                },
-            ]
-        });
-    }
 
-    $.pulltorefresh.initialize({
-        controller: 'homepage/listView',
+## Changelog
 
-        iosRefreshControl: {
-            tintColor : '#FF7A00',
-            title: refreshTitle,
-        },
-
-        headerPullView : {
-            arrow : {
-                backgroundImage: "/images/arrow.png",
-                bottom: 10,
-                height: 46,
-                left: 35,
-                width: 11
-            },
-            border : {
-                backgroundColor: '#FF7A00',
-                height: 3
-            },
-            indicator : {
-                top: 1
-            },
-            lastUpdate : {
-                color: "#FF7A00",
-            },
-            status : {
-                color: '#FF7A00',
-                font: {
-                    fontSize: 15,
-                    fontWeight: "bold"
-                },
-            },
-            view : {
-                backgroundColor: 'grey',
-                size : 70
-            }
-
-        }    
-    });
-    
+### 1.0 _ 2014-03-25
+* initial release of the widget
     
