@@ -36,7 +36,6 @@ var api = {
                 api.iosRefreshControl.title = parameters.iosRefreshControl.title ? parameters.iosRefreshControl.title : null;
             }
 
-            // create a refresh control
             var control = Ti.UI.createRefreshControl({
                 tintColor: api.iosRefreshControl.tintColor,
                 title: api.iosRefreshControl.title
@@ -44,7 +43,6 @@ var api = {
             control.addEventListener('refreshstart', api.doRefresh);
             api.contentView.refreshControl = control;
 
-            // add the content to the root of the ptr component
             $.pulltorefresh.add(api.contentView);
         }
         // Our headerpullView for other devices
@@ -125,7 +123,7 @@ var api = {
 
     /**
      *   contentHeight: height of the content
-     *   hideHeight : size of the header (ex. 60) - size of the navBar if there is a navBar
+     *   hideHeight : size of the header - size of the navBar if there is a navBar
      */
     stop: function(contentHeight, hideHeight) {
         hideHeight = hideHeight || 0;

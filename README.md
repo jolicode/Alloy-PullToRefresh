@@ -1,7 +1,7 @@
 # Alloy PullToRefresh
 
 ## Description
-The Titanium ALloy **Badass PullToRefresh** widget allows to refresh the page with a pull down when using a **ListView**. 
+The Titanium ALloy **Badass PullToRefresh** widget allows to refresh the page with a pull down when using a **ListView** and **TableView**. 
 Available for **iOS and Android**, without any dependencie.
 For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl), and for Android it's a custom pull to refresh. The header pull view is personalizable and can be in multiples languages.
 
@@ -33,7 +33,7 @@ You can use the command line: (need [gitt.io](http://gitt.io/) installed)
 
 In your principal controller:
 
-* In the `xml` file, where there will be your listView put this code: 
+* In the `xml` file, where there will be your listView/tableView put this code: 
 
 		<Widget src="com.jolicode.pullToRefresh" id="pulltorefresh"/>
 		
@@ -45,9 +45,9 @@ In your principal controller:
         
 	This is the minimal code you have to implement. 
 
-	| Option       | Signification                                    |
-	| ------------ |:------------------------------------------------:|
-	| `controller` | Emplacement of the controller of your ListView   | 
+	| Option       | Signification                                            |
+	| ------------ |:--------------------------------------------------------:|
+	| `controller` | Emplacement of the controller of your ListView/TableView | 
 
 	But you can add these parameters :
 	
@@ -102,7 +102,7 @@ In your principal controller:
 		| `width`       | width of the label              | Number/String   | 200         |
 		
 		
-* In the `js`file of yout listView:
+* In the `js`file of your listView/tableView:
 	* In the initialization of the file put this code: 
 	
 	        if (args.pulltorefresh) {
@@ -115,14 +115,14 @@ In your principal controller:
            		args.pulltorefresh.stop(data.length * 240, 20);
 			}
 			
-		The first argument is the length of one item of your listView.
+		The first argument is the length of one item of your listView/tableView.
 		
 		The second argument [Optional] is the subtraction of the size of the header by the size of the navbar, if you don't have any navbar don't indicate this argument.
 			
 	* Add this function: 
 	
 			doRefresh: function(e) {
-        		// Call your updateListView function
+        		// Call your update function
     		},
 
 ## Internationalization
@@ -154,4 +154,14 @@ You can find an example in the folder `example`.
 
 ### 1.0 _ 2014-03-25
 * initial release of the widget
-    
+
+
+
+## Wishlist
+
+### Works also with ScrollView
+The native ios RefreshControl don't work for ScrollView ([see the doc](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl)).
+
+Therefore maybe we can use instead of it the headerpullview used for Android.
+Surently in the next version if a kind dev can do it ? 
+
