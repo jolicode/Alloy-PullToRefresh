@@ -64,42 +64,42 @@ In your principal controller:
 		| Option        | Signification                   | Type            | Default     |
 		| ------------- | ------------------------------- |:---------------:|:-----------:|
 		||
-		| ***view***                                                                                      | 
-		|  `size`            | size of the view                       | Number/String   | 60                                  |
-		| `backgroundColor`  | background color of the view           | String          | "FFF"                               |
+		| ***view***                                                                      | 
+		|  `size`       | size of the view                | Number/String   | 60          |
+		| `backgroundColor`| background color of the view | String          | "FFF"       |
 		||
-		| ***border***                                                                                                        | 
-		| `height`           | height of the border                   | Number/String   | 2                                   |
-		| `backgroundColor`  | background color of the border         | String          | "black"                             |
+		| ***border***                                                                    | 
+		| `height`      | height of the border            | Number/String   | 2           |
+		| `backgroundColor`| background color of the border| String         | "black"     |
 		||
-		| ***arrow***                                                                                                         |
-		| `backgroundImage`  | path to your arrow image               | String          | WPATH("/image/arrow.png")           |
-		| `bottom`           | margin bottom up to the border         | Number/String   | 7                                   |
-		| `height`           | height of the arrow                    | Number/String   | 45                                  |
-		| `left`             | margin left of the arrow               | Number/String   | 35                                  |
-		| `width`            | width of the arrow                     | Number/String   | 11                                  |
+		| ***arrow***                                                                     |
+		| `backgroundImage`| path to your arrow image     | String          | WPATH("/image/arrow.png")|
+		| `bottom`      | margin bottom up to the border  | Number/String   | 7           |
+		| `height`      | height of the arrow             | Number/String   | 45          |
+		| `left`        | margin left of the arrow        | Number/String   | 35          |
+		| `width`       | width of the arrow              | Number/String   | 11          |
 		||
-		| ***indicator***                                                                                                     |
-		| `bottom`           | margin bottom of the refresh indicator | Number/String   | "auto"                              |
-		| `left`             | margin left of the refresh indicator   | Number/String   | "auto"                              |
-		| `right`            | margin right of the refresh indicator  | Number/String   | "auto"                              |
-		| `top`              | margin top of the refresh indicator    | Number/String   | 0                                   |
+		| ***indicator***                                                                 |
+		| `bottom`      | margin bottom of the refresh indicator| Number/String | "auto"  |
+		| `left`        | margin left of the refresh indicator| Number/String  | "auto"   |
+		| `right`       | margin right of the refresh indicator| Number/String   | "auto" |
+		| `top`         | margin top of the refresh indicator| Number/String   | 0        |
 		||
-		| ***status***                                                                                                        |
-		| `bottom`           | margin bottom of the label             | Number/String   | 30                                  |
-		| `color`            | color of the label                     | String          | "black"                             |
-		| `height`           | height of the label                    | Number/String   | "auto"                              |
-		| `font`             | font of the label                      | Font            | { fontSize: 12, fontWeight: "bold" }|
-		| `textAlign`        | text alignment of the label            | String/Number   | "center"                            |
-		| `width`            | width of the label                     | Number/String   | 200                                 |
+		| ***status***                                                                    |
+		| `bottom`      | margin bottom of the label      | Number/String   | 30          |
+		| `color`       | color of the label              | String          | "black"     |
+		| `height`      | height of the label             | Number/String   | "auto"      |
+		| `font`        | font of the label               | Font            | { fontSize: 12, fontWeight: "bold" }|
+		| `textAlign`   | text alignment of the label     | String/Number   | "center"    |
+		| `width`       | width of the label              | Number/String   | 200         |
 		||
-		| ***lastUpdate***                                                                                                    |
-		| `bottom`           | margin bottom of the label             | Number/String   | 15                                  |
-		| `color`            | color of the label                     | String          | "black"                             |
-		| `height`           | height of the label                    | Number/String   | "auto"                              |
-		| `font`             | font of the label                      | Font            | { fontSize: 12 }|
-		| `textAlign`        | text alignment of the label            | String/Number   | "center"                            |
-		| `width`            | width of the label                     | Number/String   | 200                                 |
+		| ***lastUpdate***                                                                |
+		| `bottom`      | margin bottom of the label      | Number/String   | 15          |
+		| `color`       | color of the label              | String          | "black"     |
+		| `height`      | height of the label             | Number/String   | "auto"      |
+		| `font`        | font of the label               | Font            | { fontSize: 12 }|
+		| `textAlign`   | text alignment of the label     | String/Number   | "center"    |
+		| `width`       | width of the label              | Number/String   | 200         |
 		
 		
 * In the `js`file of yout listView:
