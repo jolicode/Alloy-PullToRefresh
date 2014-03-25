@@ -8,9 +8,10 @@ For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium
 ## Overview
 
 ![iOS PTR View](docs/iospullview.png)
-![Android PTR PullDown]()
-![Android PTR Release]()
-![Android PTR Loading]()
+
+![Android PTR PullDown](docs/androidpullview-pulldown.png)
+![Android PTR Release](docs/androidpullview-release.png)
+![Android PTR Loading](docs/androidpullview-loading.png)
 
 ## Installation
 
@@ -53,35 +54,54 @@ In your principal controller:
 	* `iosRefreshControl`[Optional], that represents several properties of the native refresh control, that is specific to iOS's devices:
 
 		| Option        | Signification                   | Type            | Default     | Documentation                 |
-		| ------------- |:-------------------------------:|:---------------:|:-----------:|-------------------------------|
+		| ------------- | ------------------------------- |:---------------:|:-----------:|-------------------------------|
 		|`tintColor`    | Color of the refreshControl     | String          | black       |[Ti.UI.RefreshControl](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl)|
 		|`title`        | Attributes of the title         | AttributedString| none        |[Ti.UI.iOS.AttributedString](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.iOS.AttributedString)|
 
 	* `headerPullView`[Optional], that represents several properties specifics to Android's devices:
-	 	
-		* GroupOption : View 		
+
+		
+		| Option             | Signification                          | Type            | Default                             |
+		|------------------- | -------------------------------------- |:---------------:|:---------------------------------- :|
+		||
+		| ***view***                                                                                                          | 
+		|  `size`            | size of the view                       | Number/String   | 60                                  |
+		| `backgroundColor`  | background color of the view           | String          | "FFF"                               |
+		||
+		| ***border***                                                                                                        | 
+		| `height`           | height of the border                   | Number/String   | 2                                   |
+		| `backgroundColor`  | background color of the border         | String          | "black"                             |
+		||
+		| ***arrow***                                                                                                         |
+		| `backgroundImage`  | path to your arrow image               | String          | WPATH("/image/arrow.png")           |
+		| `bottom`           | margin bottom up to the border         | Number/String   | 7                                   |
+		| `height`           | height of the arrow                    | Number/String   | 45                                  |
+		| `left`             | margin left of the arrow               | Number/String   | 35                                  |
+		| `width`            | width of the arrow                     | Number/String   | 11                                  |
+		||
+		| ***indicator***                                                                                                     |
+		| `bottom`           | margin bottom of the refresh indicator | Number/String   | "auto"                              |
+		| `left`             | margin left of the refresh indicator   | Number/String   | "auto"                              |
+		| `right`            | margin right of the refresh indicator  | Number/String   | "auto"                              |
+		| `top`              | margin top of the refresh indicator    | Number/String   | 0                                   |
+		||
+		| ***status***                                                                                                        |
+		| `bottom`           | margin bottom of the label             | Number/String   | 30                                  |
+		| `color`            | color of the label                     | String          | "black"                             |
+		| `height`           | height of the label                    | Number/String   | "auto"                              |
+		| `font`             | font of the label                      | Font            | { fontSize: 12, fontWeight: "bold" }|
+		| `textAlign`        | text alignment of the label            | String/Number   | "center"                            |
+		| `width`            | width of the label                     | Number/String   | 200                                 |
+		||
+		| ***lastUpdate***                                                                                                    |
+		| `bottom`           | margin bottom of the label             | Number/String   | 15                                  |
+		| `color`            | color of the label                     | String          | "black"                             |
+		| `height`           | height of the label                    | Number/String   | "auto"                              |
+		| `font`             | font of the label                      | Font            | { fontSize: 12 }|
+		| `textAlign`        | text alignment of the label            | String/Number   | "center"                            |
+		| `width`            | width of the label                     | Number/String   | 200                                 |
 		
 		
-			| Option             | Signification                   | Type            | Default      |
-			|------------------- |:-------------------------------:|:---------------:|:------------:|
-			||
-			| ***view***                                                                            | 
-			|  `size`            | size of the view                | Number          | 60           |
-			| `backgroundColor`  | background color of the view    | String          | "FFF"        |
-			||
-			| ***border***                                                                          | 
-			| `size`             | size of the view                | Number          | 60           |
-			| `backgroundColor`  | background color of the view    | String          | "FFF"        |
-			||
-			| ***arrow***                                                                           | 
-			| `bottom`           | margin bottom up to the border  | Number          | 7            |
-			| `height`           | height of the arrow             | Number          | 45           |
-			| `left`             | margin left of the arrow        | Number          | 35           |
-			| `width`            | width of the arrow              | Number          | 11           |
-			||
-			| 
-
-
 * In the `js`file of yout listView:
 	* In the initialization of the file put this code: 
 	
@@ -104,6 +124,7 @@ In your principal controller:
 			doRefresh: function(e) {
         		// Call your updateListView function
     		},
+
 
 ## Examples
 
@@ -133,21 +154,35 @@ In your principal controller:
 
         headerPullView : {
             arrow : {
-                backgroundImage:,
+                backgroundImage: "/images/arrow.png",
                 bottom: 10,
                 height: 46,
                 left: 35,
                 width: 11
             },
             border : {
-                backgroundColor: 'blue',
+                backgroundColor: '#FF7A00',
                 height: 3
+            },
+            indicator : {
+                top: 1
+            },
+            lastUpdate : {
+                color: "#FF7A00",
+            },
+            status : {
+                color: '#FF7A00',
+                font: {
+                    fontSize: 15,
+                    fontWeight: "bold"
+                },
             },
             view : {
                 backgroundColor: 'grey',
                 size : 70
             }
-        }      
+
+        }    
     });
     
     

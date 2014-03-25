@@ -44,7 +44,7 @@ var api = {
             control.addEventListener('refreshstart', api.doRefresh);
             api.contentView.refreshControl = control;
 
-            // add it to the root of the ptr component
+            // add the content to the root of the ptr component
             $.pulltorefresh.add(api.contentView);
         }
         // Our headerpullView for other devices
@@ -52,20 +52,21 @@ var api = {
 
             if (parameters.headerPullView) {
                 api.headerPullViewArgs = parameters.headerPullView;
-                Ti.API.info("api.headerPullViewArgs: ");
-                Ti.API.info(api.headerPullViewArgs );
-                api.headerPullViewSize = parameters.headerPullView.view.size ? parameters.headerPullView.view.size : 60;
+                if (parameters.headerPullView.view) {
+                    api.headerPullViewSize = parameters.headerPullView.view.size ? parameters.headerPullView.view.size : 60;
+                }
             }
 
             // create the controller headerPullView
             api.headerPullControl = Widget.createController('headerPullView', { parameters: api.headerPullViewArgs });
             api.headerPullView = api.headerPullControl.getView();
-            $.container.add(api.headerPullView);
-
 
             // add it in the ptr scrollview
+            $.container.add(api.headerPullView);
             $.container.addEventListener('touchend', api.touchEnd);
             $.container.addEventListener('scroll', api.scroll);
+
+            // add the content to the root of the ptr component
             $.container.add(api.contentView);
         }
     },
@@ -100,22 +101,23 @@ var api = {
                     api.previousOffset = api.offset;
                     api.isChecking = true;
                 } else {
-                    if (api.offset !== api.headerPullViewSize){
+
+                    if (api.offset !== api.headerPullViewSize * Ti.Platform.displayCaps.logicalDensityFactor){
+
                         // the scroll has ended \o/
                         clearInterval(interval);
                         api.isChecking = false;
                         api.touchEnd();
                     }
                 }
-            }, 500);
+            }, 2000);
         }
 
-        var offsetMax = api.headerPullViewSize-1;
-
-        if (api.offset == 0 && !api.pulling) {
+        if (api.offset <= 0 && !api.pulling) {
             api.pulling = true;
             api.headerPullControl.pulling();
-        } else if (api.pulling && api.offset > 1 && api.offset < offsetMax) {
+        } else if (api.pulling && api.offset >= 1 && api.offset < api.headerPullViewSize * Ti.Platform.displayCaps.logicalDensityFactor) {
+
             api.pulling = false;
             api.headerPullControl.pullingStop();
         }
@@ -123,19 +125,19 @@ var api = {
 
     /**
      *   contentHeight: height of the content
-     *   hideHeight : size of the header - size of the navBar if there is a navBar
+     *   hideHeight : size of the header (ex. 60) - size of the navBar if there is a navBar
      */
     stop: function(contentHeight, hideHeight) {
         hideHeight = hideHeight || 0;
 
         if (OS_ANDROID) {
             api.reloading = false;
-            $.container.scrollTo(0, api.headerPullViewSize);
+            $.container.scrollTo(0, api.headerPullViewSize * Ti.Platform.displayCaps.logicalDensityFactor);
             api.headerPullControl && api.headerPullControl.updateComplete();
 
             if (contentHeight) {
-                screenHeight =  Ti.Platform.displayCaps.platformHeight + hideHeight;
-                $.container.contentHeight = contentHeight > screenHeight ? contentHeight + hideHeight : screenHeight;
+                $.container.contentHeight = hideHeight * Ti.Platform.displayCaps.logicalDensityFactor
+                    + Math.max(contentHeight * Ti.Platform.displayCaps.logicalDensityFactor, Ti.Platform.displayCaps.platformHeight);
             }
         } else {
             if (api.contentView && api.contentView.refreshControl) {
@@ -148,18 +150,18 @@ var api = {
      *
      */
     touchEnd: function(e) {
-        if (api.offset == 0) {
-
+        if (api.offset <= 0) {
             if (api.pulling && !api.reloading) {
                 api.reloading = true;
                 api.pulling = false;
                 api.headerPullControl.pullingComplete();
                 api.doRefresh();
             }
-        } else if (api.offset < api.headerPullViewSize) {
+
+        } else if (api.offset < api.headerPullViewSize * Ti.Platform.displayCaps.logicalDensityFactor) {
             api.pulling = false;
             api.headerPullControl.pullingStop();
-            $.container.setContentOffset({x: 0, y: api.headerPullViewSize});
+            api.stop();
         }
     },
 };

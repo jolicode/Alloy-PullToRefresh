@@ -1,12 +1,20 @@
 "#headerPullView": {
+    backgroundColor: "#FFF",
     width: Ti.UI.FILL,
+    height: 60
 },
-
 "#border": {
+    backgroundColor: "black",
+    height: 2,
     bottom: 0
 },
 
 "#arrow": {
+    backgroundImage: WPATH('/images/arrow.png'),
+    bottom: 7,
+    height: 45,
+    left: 35,
+    width: 11,
 },
 
 "#indicator": {
@@ -14,7 +22,7 @@
 }
 "#status": {
     bottom: 30,
-    color: "#FF7A00",
+    color: "black",
     font: {
         fontSize: 13,
         fontWeight: "bold"
@@ -26,7 +34,7 @@
 
 "#lastUpdate": {
     bottom: 15,
-    color: "#FF7A00",
+    color: "black",
     height: "auto",
     font: {
         fontSize: 12

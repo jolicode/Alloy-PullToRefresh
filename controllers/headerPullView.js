@@ -1,5 +1,5 @@
 var args = arguments[0] || {};
-var parameters = args["parameters"];
+var parameters = args["parameters"] || {};
 
 var moment = require('alloy/moment');
 
@@ -7,21 +7,49 @@ var api = {
 
     initialize : function() {
         if (parameters) {
-            $.headerPullView.height = parameters.view.size ? parameters.view.size : 60;
-            $.headerPullView.backgroundColor = parameters.view.backgroundColor ? parameters.view.backgroundColor :'FFF';
+            if (parameters.view) {
+                $.headerPullView.height = parameters.view.size ? parameters.view.size : 60;
+                $.headerPullView.backgroundColor = parameters.view.backgroundColor ? parameters.view.backgroundColor :'FFF';
+            }
 
-            $.border.height = parameters.border.height ? parameters.border.height : 2;
-            $.border.backgroundColor = parameters.border.backgroundColor ? parameters.border.backgroundColor : '#FF7A00';
+            if (parameters.border) {
+                $.border.backgroundColor = parameters.border.backgroundColor ? parameters.border.backgroundColor : 'black';
+                $.border.height = parameters.border.height ? parameters.border.height : 2;
+            }
 
-            $.arrow.backgroundImage = parameters.arrow.backgroundImage ? parameters.arrow.backgroundImage : WPATH('/images/arrow.png');
-            $.arrow.bottom = parameters.arrow.bottom ? parameters.arrow.bottom : 7;
-            $.arrow.height = parameters.arrow.height ? parameters.arrow.height : 45;
-            $.arrow.left = parameters.arrow.left ? parameters.arrow.left : 35;
-            $.arrow.width = parameters.arrow.width ? parameters.arrow.width : 11;
+            if (parameters.arrow) {
+                $.arrow.backgroundImage = parameters.arrow.backgroundImage ? parameters.arrow.backgroundImage : WPATH('/images/arrow.png');
+                $.arrow.bottom = parameters.arrow.bottom ? parameters.arrow.bottom : 7;
+                $.arrow.height = parameters.arrow.height ? parameters.arrow.height : 45;
+                $.arrow.left = parameters.arrow.left ? parameters.arrow.left : 35;
+                $.arrow.width = parameters.arrow.width ? parameters.arrow.width : 11;
+            }
 
+            if (parameters.indicator) {
+                $.indicator.bottom = parameters.indicator.bottom ? parameters.indicator.bottom : "auto";
+                $.indicator.left = parameters.indicator.left ? parameters.indicator.left : "auto";
+                $.indicator.right = parameters.indicator.right ? parameters.indicator.right : "auto";
+                $.indicator.top = parameters.indicator.top ? parameters.indicator.top : 0;
+            }
 
+            if (parameters.status) {
+                $.status.bottom =  parameters.status.bottom ? parameters.status.bottom : 30 ;
+                $.status.color = parameters.status.color ? parameters.status.color: "black";
+                $.status.font = parameters.status.font ? parameters.status.font : { fontSize : 13, fontWeight: "bold" };
+                $.status.height = parameters.status.height ? parameters.status.height: "auto";
+                $.status.textAlign = parameters.status.textAlign ? parameters.status.textAlign : "center";
+                $.status.width = parameters.status.width ? parameters.status.width: 200;
+            }
+
+            if (parameters.lastUpdate) {
+                $.lastUpdate.bottom = parameters.lastUpdate.bottom ? parameters.lastUpdate.bottom :  15,
+                $.lastUpdate.color = parameters.lastUpdate.color ? parameters.lastUpdate.color :  "black",
+                $.lastUpdate.font = parameters.lastUpdate.font ? parameters.lastUpdate.font : { fontSize: 12 },
+                $.lastUpdate.height = parameters.lastUpdate.height ? parameters.lastUpdate.height :  "auto",
+                $.lastUpdate.textAlign = parameters.lastUpdate.textAlign ? parameters.lastUpdate.textAlign : "center";
+                $.lastUpdate.width = parameters.lastUpdate.width ? parameters.lastUpdate.width: 200;
+            }
         }
-
     },
 
     formatDate: function(date) {
