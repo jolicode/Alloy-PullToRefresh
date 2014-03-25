@@ -1,0 +1,4 @@
+  <string name="loading">Loading</string>
+  <string name="release_to_update">Release to update</string>
+  <string name="pull_to_reload">Pull to reload</string>
+  <string name="updated_at">Update at</string>

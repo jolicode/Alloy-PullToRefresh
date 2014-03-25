@@ -125,6 +125,25 @@ In your principal controller:
         		// Call your updateListView function
     		},
 
+## Internationalization
+
+This widget can be in multiples languages, that's there are 4 keys you have to indicate the string phrases :
+	
+1. loading
+2. release_to_update
+3. pull_to_reload
+4. updated_at
+
+You can for example put this code in your `/i18n/en/string.xml` file: 
+  	
+  	<string name="loading">Loading</string>
+  	<string name="release_to_update">Release to update</string>
+  	<string name="pull_to_reload">Pull to reload</string>
+	<string name="updated_at">Update at</string>
+	
+You can find the same example in french in the widget file `i18n/fr/string.xml-dist`.
+
+For more info in internationalization and i18n look the [documentation](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.Locale-method-getString).
 
 ## Examples
 

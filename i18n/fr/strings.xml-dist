@@ -1,0 +1,4 @@
+  <string name="loading">Chargement</string>
+  <string name="release_to_update">Relacher pour mettre à jour</string>
+  <string name="pull_to_reload">Tirer pour recharger</string>
+  <string name="updated_at">Mise à jour le</string>
