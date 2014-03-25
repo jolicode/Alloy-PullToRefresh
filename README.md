@@ -61,10 +61,10 @@ In your principal controller:
 	* `headerPullView`[Optional], that represents several properties specifics to Android's devices:
 
 		
-		| Option             | Signification                          | Type            | Default                             |
-		|------------------- | -------------------------------------- |:---------------:|:---------------------------------- :|
+		| Option        | Signification                   | Type            | Default     |
+		| ------------- | ------------------------------- |:---------------:|:-----------:|
 		||
-		| ***view***                                                                                                          | 
+		| ***view***                                                                                      | 
 		|  `size`            | size of the view                       | Number/String   | 60                                  |
 		| `backgroundColor`  | background color of the view           | String          | "FFF"                               |
 		||
