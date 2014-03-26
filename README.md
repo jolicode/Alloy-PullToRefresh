@@ -1,7 +1,7 @@
 # Alloy PullToRefresh
 
 ## Description
-The Titanium ALloy **Badass PullToRefresh** widget allows to refresh the page with a pull down when using a **ListView** and **TableView**. 
+The Titanium **Alloy PullToRefresh** widget allows to refresh the page with a pull down when using a **ListView** and **TableView**. 
 Available for **iOS and Android**, without any dependencie.
 For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl), and for Android it's a custom pull to refresh. The header pull view is personalizable and can be in multiples languages.
 
