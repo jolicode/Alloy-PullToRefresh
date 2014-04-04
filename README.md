@@ -24,7 +24,7 @@ For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium
    	 	}
     
 ### Gittio install
-You can use the command line: (need [gitt.io](http://gitt.io/) installed)
+You can use the [gitTio CLI](http://gitt.io/cli)
 
 		$ gittio install com.jolicode.pullToRefresh
 
