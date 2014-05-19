@@ -26,10 +26,8 @@ var api = {
         // create the controller given in argument witch we give the var api in argument
         api.content = Alloy.createController(parameters.controller, { pulltorefresh: api });
 
-        // Get the content of this controller
         api.contentView = api.content.getView();
 
-        // Native refresh control for iOS
         if (OS_IOS) {
             if (parameters.iosRefreshControl) {
                 api.iosRefreshControl.tintColor = parameters.iosRefreshControl.tintColor ? parameters.iosRefreshControl.tintColor : 'black';
