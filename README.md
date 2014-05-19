@@ -5,6 +5,12 @@ The Titanium **Alloy PullToRefresh** widget allows to refresh the page with a pu
 Available for **iOS and Android**, without any dependencie.
 For iOS we use [the native refreshControl](http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.RefreshControl), and for Android it's a custom pull to refresh. The header pull view is personalizable and can be in multiples languages.
 
+## Demo 
+
+![iOS Gif Demo](docs/ios.gif)
+
+![Android Gif Demo](docs/android.gif)
+
 ## Overview
 
 ![iOS PTR View](docs/iospullview.png)
