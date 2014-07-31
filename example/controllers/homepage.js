@@ -3,6 +3,7 @@ var args = arguments[0] || {};
 var api = {
     initialize: function() {
         $.pulltorefresh.initialize({
+            arguments: {},
             controller: 'homepage/listView',
 
             iosRefreshControl: {

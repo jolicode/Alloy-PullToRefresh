@@ -22,9 +22,10 @@ var api = {
     reloading: false, // boolean to know if it's already reload
 
     initialize: function(parameters) {
+        parameters.arguments = parameters.arguments || {};
 
         // create the controller given in argument witch we give the var api in argument
-        api.content = Alloy.createController(parameters.controller, { pulltorefresh: api });
+        api.content = Alloy.createController(parameters.controller, { pulltorefresh: api, arguments: parameters.arguments });
 
         api.contentView = api.content.getView();
 

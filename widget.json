@@ -3,7 +3,7 @@
 	"name": "com.jolicode.pullToRefresh",
 	"description" : "Allows you to refresh the page with a pull down when using a ListView or a TableView. Available for iOS and Android, without any dependencie.",
 	"author": "jolicode.com",
-	"version": "1.1",
+	"version": "1.2",
 	"copyright":"Copyright JoliCode 2014",
 	"license":"MIT",
 	"min-alloy-version": "1.0",
